@@ -11,9 +11,22 @@ function delete(){
 }
 
 function commit(){
-  git add -f * && git commit -m $1
+  git add $1 && git commit -m $2
 }
 
 function search(){
   grep -rin $1 * | awk -F: '{print $2" - Line number : "$1}'
+}
+
+function reset(){
+  git reset --hard HEAD
+
+}
+
+function -(){
+  git checkout -
+}
+
+function amend(){
+  git commit --amend -m $1
 }
