@@ -30,3 +30,7 @@ function -(){
 function amend(){
   git commit --amend -m $1
 }
+
+if [ -f ~/.bash_profile ]; then
+  . ~/.bash_profile
+fi
