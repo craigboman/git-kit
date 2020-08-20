@@ -1,3 +1,4 @@
+cat ~/.zshrc
 function update(){
   git checkout develop && git pull && git checkout - && git merge develop  
 }
@@ -15,7 +16,7 @@ function addCommit(){
 }
 
 function search(){
-  grep -rin $1 * | awk -F: '{print $2" - Line number : "$1}'
+  git grep -rin $1 * | awk -F: '{print $1" - Line number : "$2}'
 }
 
 function reset(){
@@ -35,8 +36,8 @@ function rebase(){
   git rebase -i origin/develop
 }
 
-function localDB(){
-  psql -h localhost -p 5432 -U $1
+function wbi(){
+  psql -h localhost -p 5432 -U wbi
 }
 
 function getCert(){
