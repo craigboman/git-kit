@@ -36,8 +36,8 @@ function rebase(){
   git rebase -i origin/develop
 }
 
-function wbi(){
-  psql -h localhost -p 5432 -U wbi
+function db(){
+  psql -h localhost -p 5432 -U dbname
 }
 
 function getCert(){
