@@ -1,4 +1,4 @@
-cat ~/.zshrc
+#  ~/.zshrc
 function update(){
   git checkout develop && git pull && git checkout - && git merge develop  
 }
