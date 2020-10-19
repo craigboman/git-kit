@@ -1,10 +1,19 @@
 #  ~/.zshrc
-function update(){
-  git checkout develop && git pull && git checkout - && git merge develop  
+
+function updateDev(){
+  git checkout develop && git pull && git checkout - && git merge develop
+}
+
+function updateMain(){
+  git checkout master && git pull && git checkout - && git merge master
 }
 
 function create(){
-  git checkout -b $1 && git push --set-upstream origin $1  
+  git checkout -b $1 && git push --set-upstream origin $1
+}
+
+function pullAll(){
+  git pull && cd api && git pull && cd ../ui && git pull && cd ..
 }
 
 function delete(){
@@ -20,8 +29,7 @@ function search(){
 }
 
 function reset(){
-  git reset --hard
-
+  git reset --hard HEAD
 }
 
 function -(){
@@ -32,12 +40,26 @@ function amend(){
   git commit --amend -m $1
 }
 
-function rebase(){
+function rebaseDev(){
   git rebase -i origin/develop
 }
+function rebaseMain(){
+  git rebase -i origin/master
+}
 
-function db(){
-  psql -h localhost -p 5432 -U dbname
+function force(){
+  git push --force
+}
+
+function prune(){
+  git remote prune origin
+}
+function pruneDock(){
+  docker volume prune -f
+}
+
+function branchv(){
+  git branch -vv
 }
 
 function getCert(){
