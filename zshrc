@@ -1,11 +1,7 @@
 #  ~/.zshrc
 
-function updateDev(){
+function update(){
   git checkout develop && git pull && git checkout - && git merge develop
-}
-
-function updateMain(){
-  git checkout master && git pull && git checkout - && git merge master
 }
 
 function create(){
