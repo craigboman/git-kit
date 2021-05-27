@@ -1,11 +1,15 @@
 #  ~/.zshrc
 
+function create(){
+  git checkout -b $1 && git push --set-upstream origin $1
+}
+
 function update(){
   git checkout develop && git pull && git checkout - && git merge develop
 }
 
-function create(){
-  git checkout -b $1 && git push --set-upstream origin $1
+function check(){
+  git checkout $1
 }
 
 function pullAll(){
