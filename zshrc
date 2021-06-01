@@ -24,8 +24,12 @@ function addCommit(){
   git add $1 && git commit -am $2
 }
 
-function search(){
+function gitsearch(){
   git grep -rin $1 * | awk -F: '{print $1" - Line number : "$2}'
+}
+
+function histsearch(){
+  history 0 | grep $1
 }
 
 function reset(){
