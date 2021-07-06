@@ -32,6 +32,11 @@ function histsearch(){
   history 0 | grep $1
 }
 
+
+function findReplace(){
+  sed -i '' 's/==//' $1
+}
+
 function reset(){
   git reset --hard HEAD
 }
@@ -59,7 +64,7 @@ function prune(){
   git remote prune origin
 }
 function pruneDock(){
-  docker volume prune -f
+  docker volume prune -a -f --volumes
 }
 
 function branchv(){
