@@ -12,10 +12,6 @@ function check(){
   git checkout $1
 }
 
-function pullAll(){
-  git pull && cd api && git pull && cd ../ui && git pull && cd ..
-}
-
 function delete(){
   git branch -D $1
 }
