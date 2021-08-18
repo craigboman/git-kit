@@ -12,6 +12,10 @@ function check(){
   git checkout $1
 }
 
+function pullAll(){
+  git pull && cd api && git pull && cd ../ui && git pull && cd ..
+}
+
 function delete(){
   git branch -D $1
 }
@@ -28,13 +32,20 @@ function histsearch(){
   history 0 | grep $1
 }
 
-
-function findReplace(){
-  sed -i '' 's/==//' $1
+function pipfileClean(){
+  sed -i '' 's/==//' Pipfile
 }
 
-function reset(){
+function gitreset(){
   git reset --hard HEAD
+}
+
+function gitUndo(){
+  git reset --soft HEAD~1
+}
+
+function gitCleanUntracked(){
+  git clean -f -d
 }
 
 function -(){
@@ -59,8 +70,13 @@ function force(){
 function prune(){
   git remote prune origin
 }
-function pruneDock(){
-  docker volume prune -a -f --volumes
+
+function dockPrune(){
+  docker system prune -a -f --volumes 
+}
+
+function downPruneUp(){
+  make down && dockPrune && make up
 }
 
 function branchv(){
