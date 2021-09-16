@@ -28,6 +28,14 @@ function gitsearch(){
   git grep -rin $1 * | awk -F: '{print $1" - Line number : "$2}'
 }
 
+function jsSearch(){
+  ack $1 --js --ignore-dir=build
+}
+
+function pySearch(){
+  ack $1 --py --ignore-dir=logs
+}
+
 function histsearch(){
   history 0 | grep $1
 }
