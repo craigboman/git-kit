@@ -1,11 +1,11 @@
 #  ~/.zshrc
 
 function create(){
-  git checkout -b $1 && git push --set-upstream origin $1
+  git checkout -b $1 && git push --no-verify --set-upstream origin $1
 }
 
 function update(){
-  git checkout develop && git pull && git checkout - && git merge develop
+  git checkout $1 && git pull && git checkout - && git merge $1
 }
 
 function check(){
@@ -34,6 +34,10 @@ function jsSearch(){
 
 function pySearch(){
   ack $1 --py --ignore-dir=logs
+}
+
+function tsSearch(){
+  ack $1 --ts --ignore-dir=logs
 }
 
 function histsearch(){
