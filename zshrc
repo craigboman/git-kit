@@ -9,7 +9,7 @@ function update(){
 }
 
 function check(){
-  git checkout $1
+  git checkout -b $1
 }
 
 function pullAll(){
