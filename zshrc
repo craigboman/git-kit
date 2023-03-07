@@ -99,6 +99,10 @@ function getCert(){
   openssl s_client -showcerts -connect $1:443
 }
 
+function poetryImport(){
+  cat requirements.txt | xargs poetry add
+}
+
 function getCertDate(){
   openssl s_client -showcerts -connect $1:443  | openssl x509 -noout -dates
 }
