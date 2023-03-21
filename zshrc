@@ -1,5 +1,9 @@
 #  ~/.zshrc
 
+above () {
+   xrandr --auto && xrandr --output DP-2 --above eDP-1    
+}
+
 function create(){
   git checkout -b $1 && git push --no-verify --set-upstream origin $1
 }
