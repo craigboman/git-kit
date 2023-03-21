@@ -111,6 +111,10 @@ function getCertDate(){
   openssl s_client -showcerts -connect $1:443  | openssl x509 -noout -dates
 }
 
+function wifiDns(){
+  networksetup -getdnsservers Wi-Fi
+}
+
 if [ -f ~/.bash_profile ]; then
   . ~/.bash_profile
 fi
