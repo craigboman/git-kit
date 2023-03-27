@@ -99,6 +99,10 @@ function branchv(){
   git branch -vv
 }
 
+function newSvelte() {
+  pnpm create svelte@latest $1
+}
+
 function getCert(){
   openssl s_client -showcerts -connect $1:443
 }
