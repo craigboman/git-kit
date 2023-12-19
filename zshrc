@@ -119,8 +119,8 @@ function wifiDns(){
   networksetup -getdnsservers Wi-Fi
 }
 
-function enumCiphers(){
-  nmap --script ssl-enum-ciphers -p 443 libraryaware.com
+function enumCertCiphers(){
+  nmap --script ssl-enum-ciphers -p 443 $1
 }
 
 if [ -f ~/.bash_profile ]; then
