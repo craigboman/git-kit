@@ -123,6 +123,10 @@ function enumCertCiphers(){
   nmap --script ssl-enum-ciphers -p 443 $1
 }
 
+function audioSplit(){
+   sox $inputFile $outputFile trim $startSeconds $durationSeconds
+}
+
 if [ -f ~/.bash_profile ]; then
   . ~/.bash_profile
 fi
