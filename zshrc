@@ -127,6 +127,10 @@ function audioSplit(){
    sox $inputFile $outputFile trim $startSeconds $durationSeconds
 }
 
+function wav2mp4(){
+   ffmpeg -i $filename.wav $newfilename.mp4
+}
+
 if [ -f ~/.bash_profile ]; then
   . ~/.bash_profile
 fi
