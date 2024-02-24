@@ -128,7 +128,7 @@ function audioSplit(){
 }
 
 function wav2mp4(){
-   ffmpeg -loop 1 -i $image.jpg -i $input.wav -c:a aac -strict -2 -b:a 320k $output.mp4
+   ffmpeg -loop 1 -i $image.jpg -i $inputaudio.wav -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" -c:v libx264 -tune stillimage -c:a aac -b:a 320k -shortest $outputvideo.mp4
 }
 
 if [ -f ~/.bash_profile ]; then
