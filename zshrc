@@ -131,6 +131,11 @@ function wav2mp4(){
    ffmpeg -loop 1 -i $image.jpg -i $inputaudio.wav -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" -c:v libx264 -tune stillimage -c:a aac -b:a 320k -shortest $outputvideo.mp4
 }
 
+# requires ghostscript install
+function pdfMerge(){
+  gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=_all-merged.pdf *.pdf
+}
+
 if [ -f ~/.bash_profile ]; then
   . ~/.bash_profile
 fi
