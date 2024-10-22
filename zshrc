@@ -136,6 +136,9 @@ function pdfMerge(){
   gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=_all-merged.pdf *.pdf
 }
 
+# filter all of the pods running and return only the name of the nodes into which those pods are deployed.
+kubectl get pods -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.spec.nodeName}{"\n"}{end}'
+
 if [ -f ~/.bash_profile ]; then
   . ~/.bash_profile
 fi
