@@ -140,6 +140,7 @@ function pdfMerge(){
 function getsPodsByNode(){
    kubectl get pods -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.spec.nodeName}{"\n"}{end}'
 }
+
 if [ -f ~/.bash_profile ]; then
   . ~/.bash_profile
 fi
