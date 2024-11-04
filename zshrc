@@ -141,10 +141,23 @@ function getPodsByNode(){
    kubectl get pods -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.spec.nodeName}{"\n"}{end}'
 }
 
-# get image for pod
 function getPodsByImage(){
   kubectl get pods -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.spec.containers[*].image}{"\n"}{end}'
 }
+
+function getContainersInPod(){
+  kubectl get pod $1 -o jsonpath='{range .spec.containers[*]}{.name}{"\n"}{end}'
+}
+
+function getImagesInPod(){
+  kubectl get pod $1 -o jsonpath='{range .spec.containers[*]}{.image}{"\n"}{end}'
+}
+
+function getStateOfContainersInPod(){
+  kubectl get pod webapp -o jsonpath='{range .status.containerStatuses[*]}{.name}{"\t"}{.state}{"\n"}{end}'
+}
+
+
 
 if [ -f ~/.bash_profile ]; then
   . ~/.bash_profile
