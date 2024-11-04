@@ -137,8 +137,13 @@ function pdfMerge(){
 }
 
 # filter all of the pods running and return only the name of the nodes into which those pods are deployed.
-function getsPodsByNode(){
+function getPodsByNode(){
    kubectl get pods -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.spec.nodeName}{"\n"}{end}'
+}
+
+# get image for pod
+function getPodsByImage(){
+  kubectl get pods -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.spec.containers[*].image}{"\n"}{end}'
 }
 
 if [ -f ~/.bash_profile ]; then
