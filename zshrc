@@ -162,6 +162,39 @@ function getPodYaml() {
   echo "YAML for pod $1 saved to ${1}_pod.yaml"
 }
 
+function getReplicaYaml(){
+  kubectl get replicaset $1 -o yaml > existing-replicaset.yaml
+}
+
+function scaleZero(){
+  kubectl scale replicaset $1 --replicas=0
+}
+
+function scaleUp(){
+  kubectl scale replicaset $1 --replicas=$2
+}
+
+function createService(){
+  kubectl expose pod $1 --port=$2 --name $1-service
+}
+
+function editCreatePod(){
+  kubectl create -f $1 --edit -o yaml
+}
+
+function editUpdatePod(){
+  kubectl apply -f $1 --edit -o yaml
+}
+
+function getYaml(){
+  kubectl get $1 $2 -o yaml > $2-config.yaml
+}
+
+# if the resource has already been deleted, edit yaml and create
+function deleteCreateYaml() {
+  kubectl delete -f $1 || true && (vi $1) && kubectl create -f $1
+}
+
 
 
 if [ -f ~/.bash_profile ]; then
