@@ -157,6 +157,11 @@ function getStateOfContainersInPod(){
   kubectl get pod webapp -o jsonpath='{range .status.containerStatuses[*]}{.name}{"\t"}{.state}{"\n"}{end}'
 }
 
+function getPodYaml() {
+  kubectl get pod "$1" -o yaml > "${1}_pod.yaml"
+  echo "YAML for pod $1 saved to ${1}_pod.yaml"
+}
+
 
 
 if [ -f ~/.bash_profile ]; then
