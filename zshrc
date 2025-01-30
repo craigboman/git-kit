@@ -1,5 +1,7 @@
 #  ~/.zshrc
 
+alias ls='ls -alh'
+
 above () {
    xrandr --auto && xrandr --output DP-2 --above eDP-1    
 }
