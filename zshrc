@@ -197,6 +197,10 @@ function deleteCreateYaml() {
   kubectl delete -f $1 || true && (vi $1) && kubectl create -f $1
 }
 
+function describeIngress(){
+   kubectl describe ingress --namespace $resourceNamespace
+}
+
 
 
 if [ -f ~/.bash_profile ]; then
